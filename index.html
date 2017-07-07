@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Todo List</title>
+    <style media="screen">
+      ul {
+        list-style: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- This div contains the input fields for the to do app. -->
+    <div class="container">
+      <form id="formGroup">
+        <input type="text" name="" placeholder="Enter task" id="input">
+        <input type="button" name="" value="+" id="addButton">
+      </form>
+    </div>
+    <!-- All the list item will be added in this unordered list dynamically -->
+    <ul id="list"></ul>
+
+    <script type="text/javascript">
+    var formGroup = document.getElementById('formGroup');
+    var addButton = document.getElementById('addButton');
+    var list = document.getElementById('list');
+
+    addButton.addEventListener('click', Brain, false);
+
+    // TODO: Make it so that when the user hits the enter button, it also adds the item value into the list.
+
+    function Brain() {
+      var input = document.getElementById('input').value;
+      var listItem = document.createElement('li');
+      var checkBox = document.createElement('input'); //Creating a 'checkbox' element that will be added along side the item. Allowing the user to check or uncheck.
+      checkBox.type= "checkbox";
+      var listItemValue = document.createTextNode(input);   //Each new listItem will contain the latest user input.
+
+      //Checking if the input field is empty or not. If yes, printing a message in the console otherwise it the data is appended to the body.
+      if(input === "") {
+        console.log("empty item");
+      }
+      else {
+        listItem.appendChild(checkBox);
+        listItem.appendChild(listItemValue); //Lastly will append the listItem to the list.
+        list.appendChild(listItem);
+      }
+
+      formGroup.reset(); //This line resets the form back to original state once the button is clicked.
+    }
+    </script>
+  </body>
+</html>
