@@ -1,10 +1,18 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Todo List</title>
     <style media="screen">
       ul {
         list-style: none;
+        padding: 0px;
+      }
+
+      .trash {
+        cursor: pointer;
+        margin: 0 0 0 25px;
+        display: inline-block;
       }
     </style>
   </head>
@@ -22,18 +30,35 @@
     <script type="text/javascript">
     var formGroup = document.getElementById('formGroup');
     var addButton = document.getElementById('addButton');
+    var deleteButton = document.querySelectorAll('.trash');
     var list = document.getElementById('list');
 
     addButton.addEventListener('click', Brain, false);
-
     // TODO: Make it so that when the user hits the enter button, it also adds the item value into the list.
+
+    for (var i = 0; i < deleteButton.length; i++) {
+      deleteButton[i].onclick = print;
+    }
+
+    function print() {
+      console.log("I");
+    }
 
     function Brain() {
       var input = document.getElementById('input').value;
+
+      //Each new listItem will contain the latest user input.
       var listItem = document.createElement('li');
-      var checkBox = document.createElement('input'); //Creating a 'checkbox' element that will be added along side the item. Allowing the user to check or uncheck.
+      var listItemValue = document.createTextNode(input);
+
+      //Creating a 'checkbox' element that will be added along side the input string. Allowing the user to check or uncheck.
+      var checkBox = document.createElement('input');
       checkBox.type= "checkbox";
-      var listItemValue = document.createTextNode(input);   //Each new listItem will contain the latest user input.
+
+      //Creating a span that will contain 'i' element with the given class name for the font icon.
+      var removeItem = document.createElement('p');
+      removeItem.className = "trash"
+      removeItem.innerHTML = '<i class="fa fa-trash" aria-hidden="true"></i>'
 
       //Checking if the input field is empty or not. If yes, printing a message in the console otherwise it the data is appended to the body.
       if(input === "") {
@@ -42,6 +67,7 @@
       else {
         listItem.appendChild(checkBox);
         listItem.appendChild(listItemValue); //Lastly will append the listItem to the list.
+        listItem.appendChild(removeItem);
         list.appendChild(listItem);
       }
 
