@@ -3,7 +3,7 @@ ul {
   padding: 0px;
 }
 
-.trash {
+.fa-trash {
   cursor: pointer;
   margin: 0 0 0 25px;
   display: inline-block;
