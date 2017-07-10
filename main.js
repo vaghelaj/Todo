@@ -3,15 +3,7 @@
 var formGroup = document.getElementById('formGroup');
 var addButton = document.getElementById('addButton');
 var list = document.getElementById('list');
-
-addButton.addEventListener('click', Brain, false);
-// TODO: Make it so that when the user hits the enter button, it also adds the item value into the list.
-
-list.addEventListener('click', function(e) {
-  if(e.target && e.target.nodeName == 'I') {
-    e.target.parentNode.remove();
-  }
-});
+var task;
 
 function Brain(e) {
   var input = document.getElementById('input').value;
@@ -19,7 +11,10 @@ function Brain(e) {
   //Each new listItem will contain the latest user input.
   var listItem = document.createElement('li');
   listItem.className = "listItem"
-  var listItemValue = document.createTextNode(input);
+  // var listItemValue = document.createTextNode(input);
+
+  task = document.createElement('span');
+  task.innerHTML = input;
 
   //Creating a 'checkbox' element that will be added along side the input string. Allowing the user to check or uncheck.
   var checkBox = document.createElement('input');
@@ -35,11 +30,23 @@ function Brain(e) {
   }
   else {
     listItem.appendChild(checkBox);
-    listItem.appendChild(listItemValue); //Lastly will append the listItem to the list.
+    // listItem.appendChild(listItemValue); //Lastly will append the listItem to the list.
+    listItem.appendChild(task);
     listItem.appendChild(removeItem);
     list.appendChild(listItem);
 
   }
 
-  formGroup.reset(); //This line resets the form back to original state once the button is clicked.
+  formGroup.reset(); //Resets the form.
 }
+
+addButton.addEventListener('click', Brain, false);
+// TODO: Make it so that when the user hits the enter button, it also adds the item value into the list.
+
+/* Using event delegation, this click event is for the dynamically generated li elements.
+When the trash can is clicked, it deletes the entire element. */
+list.addEventListener('click', function(e) {
+  if(e.target && e.target.nodeName.toLowerCase() == 'i') {
+    e.target.parentNode.remove();
+  }
+});
