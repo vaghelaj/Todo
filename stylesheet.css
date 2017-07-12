@@ -9,6 +9,7 @@ ul {
   display: inline-block;
 }
 
+/*Strikes through the label when the checkbox is checked.*/
 input[type=checkbox]:checked + label.task{
   text-decoration: line-through;
 }

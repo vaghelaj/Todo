@@ -5,6 +5,8 @@ var addButton = document.getElementById('addButton');
 var list = document.getElementById('list');
 var task;
 
+
+//This function performs all the functionality of the app. i.e it dynamically creates 'li' element with appropiate controls\.
 function Brain(e) {
   var input = document.getElementById('input').value;
 
