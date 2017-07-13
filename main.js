@@ -3,35 +3,38 @@
 var formGroup = document.getElementById('formGroup');
 var addButton = document.getElementById('addButton');
 var list = document.getElementById('list');
+var input = document.getElementById('input');
+var inputFields = document.getElementById('inputFields');
 var task;
-
 
 //This function performs all the functionality of the app. i.e it dynamically creates 'li' element with appropiate controls\.
 function Brain(e) {
-  var input = document.getElementById('input').value;
+  var userInput = input.value;
 
   //Each new listItem will contain the latest user input.
   var listItem = document.createElement('li');
   listItem.className = "listItem"
 
   task = document.createElement('label');
-  task.innerHTML = input;
+  task.innerHTML = userInput;
   task.className = 'task';
 
-  //Creating a 'checkbox' element that will be added along side the input string. Allowing the user to check or uncheck.
-  var checkBox = document.createElement('input');
-  checkBox.type= "checkbox";
+  //Creating a 'checkboinputFields' element that will be added along side the input string. Allowing the user to check or uncheck.
+  var checkBoinputFields = document.createElement('input');
+  checkBoinputFields.type= "checkbox";
+  checkBoinputFields.className = "checkBox";
 
   //Creating a span that will contain 'i' element with the given class name for the font icon.
   var removeItem = document.createElement('i');
   removeItem.className = "fa fa-trash"
 
   //Checking if the input field is empty or not. If yes, printing a message in the console otherwise it the data is appended to the body.
-  if(input === "") {
+  if(userInput === "") {
+
     console.log("empty item");
   }
   else {
-    listItem.appendChild(checkBox);
+    listItem.appendChild(checkBoinputFields);
     listItem.appendChild(task);
     listItem.appendChild(removeItem);
     list.appendChild(listItem);
@@ -41,6 +44,7 @@ function Brain(e) {
 }
 
 addButton.addEventListener('click', Brain, false);
+
 // TODO: Make it so that when the user hits the enter button, it also adds the item value into the list.
 
 /* Using event delegation, this click event is for the dynamically generated li elements.
@@ -52,5 +56,4 @@ list.addEventListener('click', function(e) {
   if(e.target && e.target.nodeName.toLowerCase() == 'i') {
     e.target.parentNode.remove();
   }
-
 });

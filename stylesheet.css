@@ -1,15 +1,121 @@
-ul {
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Raleway:500');
+
+body {
+  background-color: #FEFBFF;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  margin-top: 111px;
+}
+
+.container h1 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 48px;
+  text-align: center;
+  color: #2D3E50;
+}
+
+#inputFields {
+  width: 485px;
+  height: 75px;
+  margin-top: 134px;
+}
+
+#input {
+  background-color: #FEFBFF;
+  border: 0;
+  width: 327px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: lighter;
+  font-size: 24px;
+  color: #2D3E50;
+  outline: none;
+  float: left;
+  padding: 6px 0 0 0;
+}
+
+#input::placeholder {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+  font-size: 22px;
+  color: #2D3E50;
+}
+
+#addButton {
+  width: 80px;
+  height: 41px;
+  padding: 0;
+  background-color: #DC3ECF;
+  border: 0;
+  border-radius: 4px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  color: #fff;
+  outline: none;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: 0.5s;
+  float: right;
+}
+
+#addButton:hover {
+  opacity: 1;
+}
+
+#addButton span {
+  position: relative;
+  /*top: -15px;*/
+}
+
+#list {
   list-style: none;
   padding: 0px;
 }
 
+.listItem {
+  width: 485px;
+  height: 75px;
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  color: #2D3E50;
+}
+
+.checkBox {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  margin-right: 26.42px;
+  margin-bottom: 10px;
+  vertical-align: middle;
+}
+
 .fa-trash {
+  display: none;
+  margin: 4px 0 0 25px;
+  color: #2D3E50;
+  float: right;
   cursor: pointer;
-  margin: 0 0 0 25px;
-  display: inline-block;
+}
+
+[placeholder]:focus::-webkit-input-placeholder {
+  transition: 0.3s;
+  /*text-indent: -100%;*/
+  transform: translateY(-20px);
+  opacity: 0;
+}
+
+[placeholder]:not(:focus)::-webkit-input-placeholder {
+  transition: 0.3s;
 }
 
 /*Strikes through the label when the checkbox is checked.*/
-input[type=checkbox]:checked + label.task{
+input[type=checkbox]:checked + .task{
   text-decoration: line-through;
+}
+
+input[type=checkbox]:checked + .task + .fa-trash{
+  display: inline-block;
 }

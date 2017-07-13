@@ -8,14 +8,20 @@
   <body>
     <!-- This div contains the input fields for the to do app. -->
     <div class="container">
+      <h1>Todo App</h1>
       <form id="formGroup">
-        <input type="text" name="" placeholder="Enter task" id="input">
-        <input type="button" name="" value="+" id="addButton">
+        <div id="inputFields">
+          <input type="text" name="" placeholder="What's your tasks for the day ?" id="input" autocomplete="off">
+          <!-- <input type="button" name="" value="+" id="addButton"> -->
+          <button type="button" name="button" id="addButton">Add</button>
+        </div>
       </form>
-    </div>
 
-    <!-- All the list item will be added in this unordered list dynamically -->
-    <ul id="list"></ul>
+      <!-- All the list item will be added in this unordered list dynamically -->
+      <ul id="list">
+      </ul>
+
+    </div>
 
     <script src="main.js"></script>
   </body>
