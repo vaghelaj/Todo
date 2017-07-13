@@ -33,7 +33,9 @@ function Brain(e) {
 
   //Checking if the input field is empty or not. If yes, printing a message in the console otherwise it the data is appended to the body.
   if(userInput === "") {
-
+    //Toggles the class 'animation' when input field is empty. Also removes the class after 1 seconds.
+    inputFields.classList.toggle('animation');
+    setTimeout(function(){inputFields.classList.toggle('animation');}, 1000);
     console.log("empty item");
   }
   else {
