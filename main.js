@@ -10,6 +10,7 @@ var task;
 //This function performs all the functionality of the app. i.e it dynamically creates 'li' element with appropiate controls\.
 function Brain(e) {
   var userInput = input.value;
+  var random = Math.floor((Math.random() * 100) + 1);
 
   //Each new listItem will contain the latest user input.
   var listItem = document.createElement('li');
@@ -18,11 +19,13 @@ function Brain(e) {
   task = document.createElement('label');
   task.innerHTML = userInput;
   task.className = 'task';
+  task.htmlFor = random;
 
   //Creating a 'checkboinputFields' element that will be added along side the input string. Allowing the user to check or uncheck.
-  var checkBoinputFields = document.createElement('input');
-  checkBoinputFields.type= "checkbox";
-  checkBoinputFields.className = "checkBox";
+  var checkBox = document.createElement('input');
+  checkBox.type= "checkbox";
+  checkBox.id = random;
+  checkBox.className = "checkBox";
 
   //Creating a span that will contain 'i' element with the given class name for the font icon.
   var removeItem = document.createElement('i');
@@ -34,7 +37,7 @@ function Brain(e) {
     console.log("empty item");
   }
   else {
-    listItem.appendChild(checkBoinputFields);
+    listItem.appendChild(checkBox);
     listItem.appendChild(task);
     listItem.appendChild(removeItem);
     list.appendChild(listItem);
