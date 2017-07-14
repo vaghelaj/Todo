@@ -36,7 +36,6 @@ function Brain(e) {
     //Toggles the class 'animation' when input field is empty. Also removes the class after 1 seconds.
     inputFields.classList.toggle('animation');
     setTimeout(function(){inputFields.classList.toggle('animation');}, 1000);
-    console.log("empty item");
   }
   else {
     listItem.appendChild(checkBox);
@@ -50,7 +49,15 @@ function Brain(e) {
 
 addButton.addEventListener('click', Brain, false);
 
-// TODO: Make it so that when the user hits the enter button, it also adds the item value into the list.
+//This event listener allows the user to add tasks using the enter button.
+document.addEventListener('keypress', function(e) {
+    var keycode = (e.keyCode ? e.keyCode : e.which);
+    if (keycode == '13') {
+      e.preventDefault();
+      Brain(e);
+      input.blur(); //removing focus from the input element once the data is enter into the list.
+    }
+});
 
 /* Using event delegation, this click event is for the dynamically generated li elements.
 When the trash can is clicked, it deletes the entire element. */
