@@ -7,7 +7,7 @@ var input = document.getElementById('input');
 var inputFields = document.getElementById('inputFields');
 var task;
 
-//This function performs all the functionality of the app. i.e it dynamically creates 'li' element with appropiate controls\.
+//This function performs all the functionality of the app. i.e it dynamically creates 'li' element with appropiate controls.
 function Brain(e) {
   var userInput = input.value;
   var random = Math.floor((Math.random() * 100) + 1);
@@ -47,6 +47,7 @@ function Brain(e) {
   formGroup.reset(); //Resets the form.
 }
 
+//Event listener for when the add button is clicked.
 addButton.addEventListener('click', Brain, false);
 
 //This event listener allows the user to add tasks using the enter button.
