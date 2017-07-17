@@ -8,6 +8,7 @@ body {
 
 .container {
   margin-top: 111px;
+  min-height: calc(100vh - 120px);
 }
 
 .container h1 {
@@ -21,7 +22,7 @@ body {
 #inputFields {
   width: 485px;
   height: 75px;
-  margin-top: 134px;
+  margin-top: 110px;
 }
 
 #input {
@@ -147,9 +148,12 @@ input[type=checkbox]:checked + .task + .fa-trash{
   display: inline-block;
 }
 
-p {
-  position: absolute;
-  bottom: 0;
+#footer {
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  height: 30px;
+  width: 100%;
   text-align: center;
   font-family: 'Raleway', sans-serif;
   color: #2D3E50;
@@ -178,4 +182,16 @@ p {
   40%, 60% {
     transform: translate3d(4px, 0, 0);
   }
+}
+
+@media screen and (max-height: 800px) {
+
+  .container {
+    margin-top: 50px;
+  }
+
+  #inputFields {
+    margin-top: 70px;
+  }
+
 }
