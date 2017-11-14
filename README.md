@@ -5,4 +5,4 @@
 </p>
 
 
-Todo App with HTML, CSS, JavaScript.
+Todo App made with HTML, CSS, JavaScript.
