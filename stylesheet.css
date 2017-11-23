@@ -148,15 +148,30 @@ input[type=checkbox]:checked + .task + .fa-trash{
   display: inline-block;
 }
 
-#footer {
-  position: fixed;
-  left: 0px;
-  bottom: 0px;
-  height: 30px;
-  width: 100%;
+a {
+  text-decoration: underline;
+}
+
+a:link, a:visited {
+  color: #2d3e50;
+}
+
+a:hover {
+  color: #2d3e50;
+  -webkit-transition: 0.2s ease-in;
+  transition: 0.2s ease-in;
+}
+
+.footer {
+  font-family: "Avenir-Medium";
+  font-size: 14px;
+  color: #2d3e50;
   text-align: center;
-  font-family: 'Raleway', sans-serif;
-  color: #2D3E50;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
 }
 
 .animation {
